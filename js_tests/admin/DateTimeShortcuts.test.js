@@ -7,7 +7,7 @@ QUnit.module('admin.DateTimeShortcuts');
 QUnit.test('init', function(assert) {
     var $ = django.jQuery;
 
-    var dateField = $('<input type="text" class="vDateField" value="2015-03-16"><br>');
+    var dateField = $('<input type="text" class="vDateField" value="2015-03-16" /><br/>');
     $('#qunit-fixture').append(dateField);
 
     DateTimeShortcuts.init();
@@ -24,7 +24,7 @@ QUnit.test('init', function(assert) {
 
 QUnit.test('custom time shortcuts', function(assert) {
     var $ = django.jQuery;
-    var timeField = $('<input type="text" name="time_test" class="vTimeField">');
+    var timeField = $('<input type="text" name="time_test" class="vTimeField" />');
     $('#qunit-fixture').append(timeField);
     DateTimeShortcuts.clockHours.time_test = [['3 a.m.', 3]];
     DateTimeShortcuts.init();
@@ -34,7 +34,7 @@ QUnit.test('custom time shortcuts', function(assert) {
 QUnit.test('time zone offset warning', function(assert) {
     var $ = django.jQuery;
     var savedOffset = $('body').attr('data-admin-utc-offset');
-    var timeField = $('<input type="text" name="time_test" class="vTimeField">');
+    var timeField = $('<input type="text" name="time_test" class="vTimeField" />');
     $('#qunit-fixture').append(timeField);
     $('body').attr('data-admin-utc-offset', new Date().getTimezoneOffset() * -60 + 3600);
     DateTimeShortcuts.init();
