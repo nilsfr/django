@@ -1136,7 +1136,7 @@ class ModelFormsetTest(TestCase):
             formset.forms[0].as_p(),
             '<p><label for="id_form-0-owner">Owner:</label>'
             '<select name="form-0-owner" id="id_form-0-owner">'
-            '<option value="" selected>---------</option>'
+            '<option value="" selected="selected">---------</option>'
             '<option value="%d">Joe Perry at Giordanos</option>'
             '<option value="%d">Jack Berry at Giordanos</option>'
             '</select></p>'
@@ -1751,7 +1751,7 @@ class TestModelFormsetOverridesTroughFormMeta(TestCase):
         form = PoetFormSet.form()
         self.assertHTMLEqual(
             "%s" % form['name'],
-            '<input id="id_name" maxlength="100" type="text" class="poet" name="name" required />'
+            '<input id="id_name" maxlength="100" type="text" class="poet" name="name" required="required"  />'
         )
 
     def test_inlineformset_factory_widgets(self):
@@ -1762,7 +1762,7 @@ class TestModelFormsetOverridesTroughFormMeta(TestCase):
         form = BookFormSet.form()
         self.assertHTMLEqual(
             "%s" % form['title'],
-            '<input class="book" id="id_title" maxlength="100" name="title" type="text" required />'
+            '<input class="book" id="id_title" maxlength="100" name="title" type="text" required="required"  />'
         )
 
     def test_modelformset_factory_labels_overrides(self):
